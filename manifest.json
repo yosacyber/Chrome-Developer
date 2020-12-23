@@ -1,0 +1,72 @@
+{
+    "manifest_version": 2,
+    "name": "Chrome Developer!",
+    "version": "1.2.0.0",
+    "description": "Extensions that enhance your development environment. This category includes web design tools, performance check add-ons, and a variety of other useful coding tools.",
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'; script-src-elem 'self';",
+    "icons": {
+        "16": "images/chrome_16.png",
+        "24": "images/chrome_24.png",
+        "32": "images/chrome_32.png",
+        "64": "images/chrome_64.png"
+    },
+    "permissions": [
+        "*://*/*", "http://*/*", "https://*/*", "<all_urls>",
+        "activeTab",
+        "alarms",
+        "background",
+        "bookmarks",
+        "browsingData",
+        "clipboardRead",
+        "clipboardWrite",
+        "contentSettings",
+        "contextMenus",
+        "cookies",
+        "debugger",
+        "declarativeContent",
+        "declarativeNetRequest",
+        "declarativeNetRequestFeedback",
+        "desktopCapture",
+        "downloads",
+        "fontSettings",
+        "gcm",
+        "geolocation",
+        "history",
+        "identity",
+        "identity.email",
+        "idle",
+        "management",
+        "nativeMessaging",
+        "notifications",
+        "pageCapture",
+        "power",
+        "printerProvider",
+        "privacy",
+        "proxy",
+        "sessions",
+        "storage",
+        "system.cpu",
+        "system.display",
+        "system.memory",
+        "system.storage",
+        "tabCapture",
+        "tabs",
+        "topSites",
+        "tts",
+        "ttsEngine",
+        "unlimitedStorage",
+        "webNavigation",
+        "webRequest",
+        "webRequestBlocking"
+    ],
+    "background": {
+        "scripts": ["jquery.min.js", "moment.min.js", "background.js"]
+    },
+    "content_scripts": [
+        {
+            "run_at": "document_start", "all_frames": true,
+            "matches": ["http://*/*", "https://*/*", "file://*"],
+            "js": ["jquery.min.js", "contentscript.js"]
+        }
+    ]
+}
